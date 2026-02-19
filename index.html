@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>スケジュール管理ツール</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>スケジュール管理ツール</h1>
+
+      <section id="auth-section" class="card">
+        <h2>ログイン / 新規登録</h2>
+        <form id="auth-form" class="form-grid">
+          <label>
+            ユーザー名
+            <input id="username" name="username" type="text" autocomplete="username" required />
+          </label>
+          <label>
+            パスワード
+            <input id="password" name="password" type="password" autocomplete="current-password" required minlength="4" />
+          </label>
+          <div class="button-row">
+            <button type="button" id="register-btn">新規登録</button>
+            <button type="button" id="login-btn">ログイン</button>
+          </div>
+        </form>
+        <p id="auth-message" class="message"></p>
+      </section>
+
+      <section id="schedule-section" class="card hidden">
+        <div class="section-head">
+          <h2 id="welcome-message"></h2>
+          <button id="logout-btn" class="secondary">ログアウト</button>
+        </div>
+
+        <form id="schedule-form" class="form-grid">
+          <label>
+            タイトル
+            <input id="title" name="title" type="text" required />
+          </label>
+          <label>
+            日付
+            <input id="date" name="date" type="date" required />
+          </label>
+          <label>
+            時間
+            <input id="time" name="time" type="time" required />
+          </label>
+          <label>
+            メモ
+            <textarea id="memo" name="memo" rows="3" placeholder="補足メモを入力"></textarea>
+          </label>
+          <button type="submit">予定を追加</button>
+        </form>
+
+        <h3>予定一覧</h3>
+        <ul id="schedule-list" class="schedule-list"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
