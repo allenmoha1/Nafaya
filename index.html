@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nafaya IPTV Player</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="panel controls">
+      <h1>Nafaya IPTV Player</h1>
+      <p class="muted">Paste an M3U playlist URL or upload a local .m3u file to start streaming your own authorized channels.</p>
+
+      <label for="m3uUrl">Playlist URL</label>
+      <div class="input-row">
+        <input id="m3uUrl" type="url" placeholder="https://example.com/playlist.m3u" />
+        <button id="loadUrlBtn">Load URL</button>
+      </div>
+
+      <label for="m3uFile">Playlist file</label>
+      <input id="m3uFile" type="file" accept=".m3u,.m3u8,text/plain" />
+
+      <div class="input-row">
+        <input id="searchInput" type="search" placeholder="Search channels..." />
+      </div>
+
+      <p id="status" class="status">Ready.</p>
+
+      <ul id="channelList" class="channel-list" aria-live="polite"></ul>
+    </section>
+
+    <section class="panel player">
+      <h2 id="currentChannel">No channel selected</h2>
+      <video id="videoPlayer" controls autoplay playsinline></video>
+      <div class="player-actions">
+        <button id="reloadBtn">Reload Current Stream</button>
+      </div>
+      <p class="muted small">Tip: Works best with HLS streams (.m3u8). For other formats support depends on your browser.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
